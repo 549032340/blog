@@ -1,0 +1,6 @@
+[**目录**](/note/README)
+* [防抖与节流](/note/javascript/防抖与节流)
+* [浏览器渲染机制](/note/javascript/如何减少使用ifelse)
+* [chrome调试技巧](/note/javascript/循环遍历)
+* [http](/note/javascript/零碎知识点笔记)
+* [http](/note/javascript/js常用的数组操作内置函数)
