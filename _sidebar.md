@@ -1,3 +1,3 @@
-**目录**
-* [笔记](/Note/README)
-* [SALARY](/Salary/README "The greatest guide in the world")
+<!-- **目录**
+* [笔记123](/note/README)
+* [SALARY](/salary/README "The greatest guide in the world") -->
