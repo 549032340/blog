@@ -4,5 +4,7 @@
   - [JavaScript](/note/javascript/防抖与节流)
   - [ShortcutKey](/note/shortcutkey/服务器快捷施法)
   - [Vue](/note/vue/零碎知识点笔记)
+  - [Linux](/note/linux/linux)
+  - [Nginx](/note/nginx/nginx)
 - [Salary](/salary/README)
 - [Game](/game/README)
