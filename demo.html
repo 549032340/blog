@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  function Animal() {
+    this.showPower = () => {
+      console.log(this.power)
+    }
+  }
+  function Duck(){
+    Animal.call(this)
+    this.power = 'swim'
+    this.tellName = () =>{
+      console.log(this.name);
+    }
+  }
+  Duck.prototype = new Animal()
+  Duck.prototype.constructor = Duck
+  const pet = new Duck()
+  pet.name = 'dada'
+  console.log(pet);
+  pet.showPower()
+  // pet.tellName()
+  // const person =  new Person()
+  // person.name = 'Jen'
+  // console.log(person);
+  // person.tellName()
+  // var value = 1;
+
+  // function foo() {
+  //   console.log(value);
+  // }
+
+  // function bar() {
+  //   var value = 2;
+  //   foo();
+  // }
+
+  // bar();
+</script>
+
+</html>

@@ -101,9 +101,16 @@ let arr=arr1.concat(arr2,arr3,[10,11]);
   console.log(arr2);//输出 [4]
   ```
 
-## 编码与解码
-### 文字编码与解码
-- encodeURIComponent() 函数可把字符串作为 URI 组件进行编码
-- decodeURIComponent() 函数可对 encodeURIComponent() 函数编码的 URI 进行解码
-- [escape、encodeURI和encodeURIComponent的区别](https://www.cnblogs.com/qlqwjy/p/9934706.html)
+- 数组去重合并
 
+  ```js
+  function combine(){ 
+      let arr = [].concat.apply([], arguments);  //没有去重复的新数组 
+      return Array.from(new Set(arr));
+  } 
+  
+  var m = [1, 2, 2], n = [2,3,3]; 
+  console.log(combine(m,n));                     // [1, 2, 3]
+  ```
+
+  
