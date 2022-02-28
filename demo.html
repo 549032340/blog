@@ -12,29 +12,28 @@
 
 </body>
 <script>
-  function Animal() {
-    this.showPower = () => {
-      console.log(this.power)
-    }
-  }
-  function Duck(){
-    Animal.call(this)
-    this.power = 'swim'
-    this.tellName = () =>{
-      console.log(this.name);
-    }
-  }
-  Duck.prototype = new Animal()
-  Duck.prototype.constructor = Duck
-  const pet = new Duck()
-  pet.name = 'dada'
-  console.log(pet);
-  pet.showPower()
+  // 示例一
+  // function Animal() {
+  //   this.showPower = () => {
+  //     console.log(this.power)
+  //   }
+  // }
+  // function Duck(){
+  //   Animal.call(this)
+  //   this.power = 'swim'
+  //   this.tellName = () =>{
+  //     console.log(this.name);
+  //   }
+  // }
+  // Duck.prototype = new Animal()
+  // Duck.prototype.constructor = Duck
+  // const pet = new Duck()
+  // pet.name = 'dada'
+  // console.log(pet);
+  // pet.showPower()
   // pet.tellName()
-  // const person =  new Person()
-  // person.name = 'Jen'
-  // console.log(person);
-  // person.tellName()
+
+  // 示例二
   // var value = 1;
 
   // function foo() {
@@ -47,6 +46,35 @@
   // }
 
   // bar();
+
+  // 示例三
+  // function Animal(){}
+  // const animal = new Animal()
+  // console.log(Animal.prototype.__proto__ === Object.prototype);
+  // console.log(animal.__proto__.__proto__ === Object.prototype);
+  // console.log(Object.prototype.__proto__ === null);
+
+  // 示例四
+  // 组合继承（原型链继承和经典继承）
+  function Animal() {
+    this.showSkill = () => {
+      console.log(this.skill)
+    }
+  }
+
+  function Dog() {
+    Animal.call(this)
+    this.tellName = () => {
+      console.log(this.name)
+    }
+    this.skill = 'wangwang'
+  }
+  Dog.prototype = new Animal()
+  Dog.prototype.constructor = Dog
+  let pet = new Dog()
+  pet.name = 'doudou'
+  pet.tellName()
+  pet.showSkill()
 </script>
 
 </html>
