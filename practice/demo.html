@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  // 示例一
+  // function Animal() {
+  //   this.showPower = () => {
+  //     console.log(this.power)
+  //   }
+  // }
+  // function Duck(){
+  //   Animal.call(this)
+  //   this.power = 'swim'
+  //   this.tellName = () =>{
+  //     console.log(this.name);
+  //   }
+  // }
+  // Duck.prototype = new Animal()
+  // Duck.prototype.constructor = Duck
+  // const pet = new Duck()
+  // pet.name = 'dada'
+  // console.log(pet);
+  // pet.showPower()
+  // pet.tellName()
+
+  // 示例二
+  // var value = 1;
+
+  // function foo() {
+  //   console.log(value);
+  // }
+
+  // function bar() {
+  //   var value = 2;
+  //   foo();
+  // }
+
+  // bar();
+
+  // 示例三
+  // function Animal(){}
+  // const animal = new Animal()
+  // console.log(Animal.prototype.__proto__ === Object.prototype);
+  // console.log(animal.__proto__.__proto__ === Object.prototype);
+  // console.log(Object.prototype.__proto__ === null);
+
+  // 示例四
+  // 组合继承（原型链继承和经典继承）
+  // function Animal() {
+  //   this.showSkill = () => {
+  //     console.log(this.skill)
+  //   }
+  // }
+
+  // function Dog() {
+  //   Animal.call(this)
+  //   this.tellName = () => {
+  //     console.log(this.name)
+  //   }
+  //   this.skill = 'wangwang'
+  // }
+  // Dog.prototype = new Animal()
+  // Dog.prototype.constructor = Dog
+  // let pet = new Dog()
+  // pet.name = 'doudou'
+  // pet.tellName()
+  // pet.showSkill()
+  // console.log(pet);
+  // console.log(Dog.prototype);
+
+  // 示例五 原型式继承
+  // function createObj(o){
+  //   function F(){}
+  //   F.prototype = o
+  //   return new F()
+  // }
+  // var person = {
+  //   name:'leta'
+  // }
+  // let person2 = createObj(person)
+  // let person3 =  Object.create(person)
+  // console.log(person2,person2.name);
+  // console.log(person3,person3.name);
+
+  // 示例六 寄生式继承
+  // const person = {
+  //   name:'leta'
+  // }
+  // function createObj(o){
+  //   let clone = Object.create(o)
+  //   clone.sayName = () =>{
+  //     console.log('other')
+  //   }
+  //   // clone.prototype.call(o)
+  //   return clone
+  // }
+  // let person2 = createObj(person)
+  // console.log(person2)
+  // person2.sayName()
+  // 示例七 寄生组合式继承 （原型式继承 + 原型链式增强型继承）
+  function createObj(o){
+    function F(){}
+    F.prototype = o
+    return new F()
+  }
+  function prototype(child,parent){
+    let prototype = createObj(parent.prototype) 
+    prototype.constructor = child
+    child.prototype = prototype
+    return child
+  }
+
+  function Animal(){
+    this.sayName = () =>{
+      console.log(this.name);
+    }
+  }
+
+  function Dog(){
+    Animal.call(this)
+    this.showSkill = () =>{
+      console.log('wangwang');
+    }
+  }
+
+  function Duck(){
+    Animal.call(this)
+    this.showSkill = () =>{
+      console.log('guagua');
+    }
+  }
+  // Dog 寄生组合式继承
+  prototype(Dog,Animal)
+  // Duck 组合继承
+  Duck.prototype = new Animal()
+  Duck.prototype.constructor = Duck
+  let pet = new Dog()
+  pet.name = 'acai'
+  console.log(pet instanceof Dog);
+  console.log(pet instanceof Animal);
+  console.log(pet)
+  pet.sayName()
+  pet.showSkill()
+  
+  let pet2 = new Duck()
+  pet2.name = 'qiqi'
+  console.log(pet2 instanceof Duck);
+  console.log(pet2 instanceof Animal);
+  console.log(pet2);
+  pet2.sayName()
+  pet2.showSkill()
+</script>
+
+</html>
