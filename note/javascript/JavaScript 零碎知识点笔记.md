@@ -303,3 +303,28 @@
 
 - 在es5中，顶层对象的属性等价于全局变量
 - es6中，var，function声明的全局变量，仍然属于顶级对象的属性；使用let，const，class声明的全局变量不再属于顶层对象的属性，这意味着es6开始，全局变量和顶层对象的属性开始分离，脱钩。所以我们在window对象里也就找不到let声明的age了
+
+### 逗号操作符
+
+##### 逗号操作符可以优雅的编写下面这种情况
+
+1. 需要调用多个函数才能得出结果
+2. 函数之间存在调用顺序
+
+```js
+let aa = 1
+function foo() {
+    aa = 2;
+    return aa;
+}
+
+function bar() {
+    aa = 3;
+    return aa;
+}
+let result = (foo(),bar())
+console.log(result);
+```
+
+
+
