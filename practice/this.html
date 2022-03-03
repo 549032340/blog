@@ -12,18 +12,34 @@
 
 </body>
 <script>
-  let aa = 1
-  function foo() {
-    aa = 2;
-    return aa;
+  function my_instanceof(a, b) {
+    while (true) {
+      if (a.__proto__ === null) return false;
+      if (a.__proto__ === b.prototype) return true;
+      a = a.__proto__;
+    }
   }
 
-  function bar() {
-    aa = 3;
-    return aa;
+  function new_instance_of(leftVaule, rightVaule) {
+    let rightProto = rightVaule.prototype; // 取右表达式的 prototype 值
+    leftVaule = leftVaule.__proto__; // 取左表达式的__proto__值
+    while (true) {
+      if (leftVaule === null) {
+        return false;
+      }
+      if (leftVaule === rightProto) {
+        return true;
+      }
+      leftVaule = leftVaule.__proto__
+    }
   }
-  let result = (foo(),bar())
-  console.log(result);
+
+  function Foo() {}
+
+  function Animal() {}
+  const foo = new Foo()
+  console.log(my_instanceof(foo, Foo));
+  console.log(my_instanceof(foo, Animal));
 </script>
 
 </html>
