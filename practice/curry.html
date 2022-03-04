@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>curry</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  const sub_curry = function (fn) {
+    // slice 方法可以用来将一个类数组（Array-like）对象/集合转换成一个新数组
+    const args = [].slice.call(arguments, 1)
+    return function () {
+      return fn.apply(this, args.concat([].slice.call(arguments)))
+    }
+  }
+
+  function curry(fn, length) {
+    console.log(fn,fn.length,length);
+    length = length || fn.length
+    const slice = Array.prototype.slice
+    return function () {
+      console.log(arguments);
+      if (arguments.length < length) {
+        const combined = [fn].concat(slice.call(arguments))
+        console.log("combined:",combined);
+        return curry(sub_curry.apply(this, combined), length - arguments.length)
+      } else {
+        return fn.apply(this, arguments)
+      }
+    }
+  }
+  // const fn = curry(function (a, b, c) {
+  //   return [a, b, c];
+  // });
+  const fn2 = curry(function(a,b,c,d){
+    return a + b + c + d
+  })
+
+  // console.log(fn2("a", "b", "c")); 
+  console.log(fn2("a", "b")("c","d")); 
+</script>
+
+</html>
