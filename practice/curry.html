@@ -12,38 +12,96 @@
 
 </body>
 <script>
+  // 实现了两组参数合并功能
+  // const sub_curry = function (fn) {
+  //   console.log(arguments)
+  //   const params = [].slice.call(arguments, 1)
+  //   return function (...args) {
+  //     return fn.apply(this, params.concat([].slice.call(args)))
+  //   }
+  // }
+
+  // function add(a, b) { 
+  //   return a + b;
+  // }
+
+  // var addCurry = sub_curry(add, 1, 2);
+  // console.log(addCurry()); // 3
+  // //或者
+  // var addCurry = sub_curry(add, 1);
+  // console.log(addCurry(2)); // 3
+  // //或者
+  // var addCurry = sub_curry(add);
+  // console.log(addCurry(1, 2)); // 3
+
+  // 通过递归sub_curry函数，实现两组及以上的参数合并功能
+  // function curry(fn, length) {
+  //   length = length || fn.length
+  //   const slice = Array.prototype.slice
+  //   return (...args) => {
+  //     if (args.length < length) {
+  //       const combined = [fn].concat(slice.call(args))
+  //       return curry(sub_curry.apply(this, combined), length - args.length)
+  //     } else {
+  //       return fn.apply(this, args)
+  //     }
+  //   }
+  // }
+
+
+  // 1.实现两组参数的合并
   const sub_curry = function (fn) {
-    // slice 方法可以用来将一个类数组（Array-like）对象/集合转换成一个新数组
-    const args = [].slice.call(arguments, 1)
-    return function () {
-      return fn.apply(this, args.concat([].slice.call(arguments)))
+    // fn为传入的第一个参数，此参数就是需要进行柯里化的函数
+    // args 为出了fn之外的剩余参数
+    const params = [].slice.call(arguments, 1)
+    return (...args) => {
+      return fn.apply(this, params.concat([].slice.call(args)))
     }
   }
 
-  function curry(fn, length) {
-    console.log(fn,fn.length,length);
+  // 2.通过递归sub_curry函数，实现两组及以上的参数合并功能
+  const curry = function (fn, length) {
+    // 此处的length优先取传入的length，如果没传入，说明是第一次进入curry，此时再取fn.length
     length = length || fn.length
-    const slice = Array.prototype.slice
-    return function () {
-      console.log(arguments);
-      if (arguments.length < length) {
-        const combined = [fn].concat(slice.call(arguments))
-        console.log("combined:",combined);
-        return curry(sub_curry.apply(this, combined), length - arguments.length)
+    return (...args) => {
+      if (length > args.length) {
+        // 1.说明剩余参数的长度小于fn的入参数量要求，表示还有其他组的参数，所以需要进行curry递归处理
+        // 2.进行参数整合
+        const combined = [fn].concat([].slice.call(args))
+        // length-args.length目的：将已经整合的参数长度减掉，再次传给curry
+        return curry(sub_curry.apply(this, combined), length - args.length)
       } else {
-        return fn.apply(this, arguments)
+        // 如果剩余参数的长度大于或者等于fn.length,说明第一组参数的长度就已经符合fn的入参要求了，直接执行fn
+        return fn.apply(this, args)
       }
     }
   }
-  // const fn = curry(function (a, b, c) {
-  //   return [a, b, c];
-  // });
-  const fn2 = curry(function(a,b,c,d){
-    return a + b + c + d
-  })
 
-  // console.log(fn2("a", "b", "c")); 
-  console.log(fn2("a", "b")("c","d")); 
+  // 第二种方式
+  // function curry(fn, params) {
+  //   params = params || []
+  //   return (...args) => {
+  //     const _args = [...params, ...args]
+  //     if (_args.length < fn.length) {
+  //       return curry.call(this, fn, _args)
+  //     } else {
+  //       return fn.apply(this, _args)
+  //     }
+  //   }
+  // }
+
+  var fn = curry(function (a, b, c) {
+    return [a, b, c];
+  });
+
+  // const a = fn("a", "b", "c") // ["a", "b", "c"]
+  const b = fn("a", "b")("c") // ["a", "b", "c"]
+  // const c = fn("a")("b")("c") // ["a", "b", "c"]
+  // const d = fn("a")("b", "c") // ["a", "b", "c"]
+  // console.log(a);
+  console.log(b);
+  // console.log(c);
+  // console.log(d);
 </script>
 
 </html>
