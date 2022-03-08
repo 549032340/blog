@@ -7,9 +7,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>curry</title>
 </head>
-
+<style>
+  #layout{
+    background-color: red;
+  }
+  #layout .left{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    float: left;
+  }
+  #layout .right{
+    height: 110px;
+    background-color: #ccc;
+    overflow: hidden;
+  }
+</style>
 <body>
+  <section id="layout">
+    <!-- <style media="screen">
+      #layout {
+        background: red;
+      }
 
+      #layout .left {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background: pink;
+      }
+
+      #layout .right {
+        height: 110px;
+        background: #ccc;
+      }
+    </style> -->
+    <div class="left"></div>
+    <div class="right"></div>
+  </section>
 </body>
 <script>
   // 实现了两组参数合并功能
