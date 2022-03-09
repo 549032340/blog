@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex</title>
+</head>
+<style>
+  .main{
+    background-color: #e2e2e2;
+    height: 1000px;
+    width: 1000px;
+    display: flex;
+    flex-direction: row;  /* 设置主轴防线 */
+    justify-content: space-around; /* 在主轴上的排列方式 */
+    align-items: center; /* 在交叉轴的排列方式 */
+  }
+  .left{
+    height: 300px;
+    flex-grow: 2;
+    background-color: rgb(7, 146, 100);
+  }
+  .middle{
+    height: 300px;
+    width: 200px;
+    flex-grow: 1;
+    /* flex-shrink: 3; */
+    background-color: rgb(26, 23, 182);
+  }
+  .right{
+    height: 300px;
+    width: 200px;
+    /* flex-grow: 1; */
+    background-color: rgb(211, 13, 96);
+  }
+</style>
+<body>
+  <div class="main">
+    <div class="left"></div>
+    <div class="middle"></div>
+    <div class="right"></div>
+  </div>
+</body>
+</html>
