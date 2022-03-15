@@ -14,9 +14,11 @@
   }
 
   .container {
-    overflow: hidden; /*形成BFC撑开文档,清除浮动带来的高度塌陷*/
+    overflow: hidden;
+    /*形成BFC撑开文档,清除浮动带来的高度塌陷*/
     padding: 0 200px;
     min-width: 210px;
+    word-break: break-all;
   }
 
   .middle,
@@ -25,6 +27,8 @@
     height: 200px;
     float: left;
     position: relative;
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
   }
 
   .middle {
@@ -50,7 +54,9 @@
 
 <body>
   <div class="container">
-    <div class="middle"></div>
+    <div class="middle">
+      asdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfasasdafasdgfghghjkgfhdfasdfas
+    </div>
     <div class="left"></div>
     <div class="right"></div>
   </div>
