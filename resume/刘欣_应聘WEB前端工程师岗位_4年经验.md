@@ -10,7 +10,7 @@
 
 #### 个人技术栈
 
-* 熟练使用Vue全家桶、webpack、rollup、Cordova
+* 熟练使用Vue全家桶、webpack、rollup、Cordova、echarts
 * 熟悉Vue3、Tailwind CSS、TypeScript、nginx、Linux指令集
 * 了解react、nodejs、puppeteer
 
@@ -18,7 +18,7 @@
 
 #### 项目经历
 
-##### 河南豫政管（移动端APP）
+##### 河南豫政管（移动端APP混合开发）
 
 项目描述：政务应用总门户APP、办公人员的工作平台、集成各种政务APP
 
@@ -26,7 +26,7 @@
 
 - 基于micro app微前端框架集成多个政务APP
 - 基于Cordova封装各种手机原生SDK，使用rollup打包成函数库
-- 基于jest完成SDK 的单元测试
+- 基于jest测试框架完成SDK 的单元测试
 - 基于docsify撰写SDK文档，并部署至服务器
 
 ##### 天津网上办事大厅（PC端）
@@ -55,6 +55,6 @@
 职责描述：
 
 -  基于echarts展示各种图形数据
--  将多个项目整合到一个工程模板中，实现代码和静态资源复用
+-  将多个H5项目整合到一个工程模板中，实现组件和静态资源复用
 -  基于vant封装相似布局的H5页面模板组件，通过数据驱动展示不同页面组件
 -  基于qiankun整合多个H5项目
