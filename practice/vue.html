@@ -9,13 +9,23 @@
 </head>
 
 <body>
-  <div id="app">{{message}}</div>
+  <div id="app">
+    <span>{{message}}</span>
+    <div>
+      <button @click="change">change</button>
+    </div>
+  </div>
 </body>
 <script>
   var app = new Vue({
     el:'#app',
     data:{
       message:'Hello Vue'
+    },
+    methods: {
+      change(){
+        this.message = 'Hello Vue !'
+      }
     },
     beforeCreate() {
       console.log('beforeCreate',this.message,this.$el)
@@ -24,12 +34,23 @@
       console.log('created',this.message,this.$el);
     },
     beforeMount() {
-      console.log('created',this.message,this.$el);
+      console.log('beforeMount',this.message,this.$el);
     },
     mounted() {
-      console.log('created',this.message,this.$el);
+      console.log('mounted',this.message,this.$el);
     },
-
+    beforeUpdate() {
+      console.log('beforeUpdate',this.message,this.$el);
+    },
+    updated() {
+      console.log('updated',this.message,this.$el);
+    },
+    beforeDestroy() {
+      console.log('beforeDestroy',this.message,this.$el);
+    },
+    destroyed() {
+      console.log('destroyed',this.message,this.$el);
+    },
   })
 </script>
 </html>
