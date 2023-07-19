@@ -10,13 +10,22 @@
 
 #### 个人技术栈
 
-* 熟练使用Vue全家桶、webpack、rollup、Cordova、echarts
-* 熟悉Vue3、Tailwind CSS、TypeScript、nginx、Linux指令集
-* 了解react、nodejs、puppeteer
+* 熟练使用 Vue全家桶、webpack、rollup、Cordova、Echarts
+* 熟悉Tailwind CSS、TypeScript、Nginx、Linux指令集
+* 了解React、Nodejs、Puppeteer自动化测试
 
 ---------------------
 
 #### 项目经历
+
+##### 国家互联网+监管
+
+项目描述：国务院办公厅的信用监管系统、联合监管系统、跨部门事项管理系统
+
+项目职责：
+
+- 梳理各互联网+监管系统业务
+- 基于业务逻辑通过Vue技术栈实现前端开发
 
 ##### 河南豫政管（移动端APP混合开发）
 
@@ -27,7 +36,7 @@
 - 基于micro app微前端框架集成多个政务APP
 - 基于Cordova封装各种手机原生SDK，使用rollup打包成函数库
 - 基于jest测试框架完成SDK 的单元测试
-- 基于docsify撰写SDK文档，并部署至服务器
+- 基于docsify撰写SDK文档
 
 ##### 天津网上办事大厅（PC端）
 
@@ -58,3 +67,4 @@
 -  将多个H5项目整合到一个工程模板中，实现组件和静态资源复用
 -  基于vant封装相似布局的H5页面模板组件，通过数据驱动展示不同页面组件
 -  基于qiankun整合多个H5项目
+

@@ -67,3 +67,9 @@
 
     
 
+### flex
+
+- flex 1
+  - flex 1；是 flex 1 1 0;的意思
+  - flex 1;是flex-grow:1;flex-shrink:1;flex-basis:0%; 的缩写
+  - flex:1;的作用： 以弹性元素自身内容大小为基准值的基础上扩大或缩小，直到把父容器剩余空间占满为止。

@@ -41,4 +41,37 @@
   netstat -nlp
   ```
 
+- type xx  意思是显示可执行文件xx的路径
+
+  ~~~bash
+  type nginx
+  // nginx 是 /usr/sbin/nginx
+  ~~~
+
+- ls -l xx  查看xx是不是一个可执行文件
+
+  ```bash
+  ls -l /usr/sbin/nginx
+  // -rwxr-xr-x. 1 root root 1373656 5月  25 2021 /usr/sbin/nginx
+  ```
+
+- find / -name xx  查找从根目录开始的所有关于xx的文件
+
+  ```
+  find / -name nginx
+  /**
+   	/etc/rc.d/init.d/nginx
+  	/etc/logrotate.d/nginx
+  	/etc/nginx
+  	/var/log/nginx
+  	/var/cache/nginx
+  	/usr/sbin/nginx
+  	/usr/lib64/nginx
+  	/usr/share/nginx
+  	/usr/libexec/initscripts/legacy-actions/nginx
+  */
   
+  ```
+
+  
+
