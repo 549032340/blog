@@ -40,3 +40,11 @@ export * from 'fs'
 ```
 - 然而此次引用是正确的，那么为什么还会引用错误呢？
 - 错误原因：vue项目的 文件中 import 和module.exports 不能混用
+
+### 说说你对Vue的理解
+
+- Vue是SPA(Single-Page-Application)框架
+- Vue框架的核心是MVVM（Model-View-ViewModel）,换句话说就是数据驱动视图，让开发者可以专注于数据和视图之间的开发，将视图中dom随数据变化的工作交给Vue去处理，这其中就涉及到了数据双向绑定、虚拟dom等框架的核心工作。
+  - 数据双向绑定是通过发布订阅模式以及Object.defineproperty/proxy对数据的拦截实现的
+  - vdom是通过算法将dom需要进行的改动先计算出来，然后统计进行修改实际dom，作用是减少实际dom的修改次数，提高页面性能
+- 将页面组件化，降低整个系统之间各个模块的耦合性，提高复用率，增加可维护性
